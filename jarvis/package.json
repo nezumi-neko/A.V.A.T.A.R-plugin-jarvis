@@ -1,0 +1,12 @@
+{
+    "name": "jarvis",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Plugin jarvis for A.V.A.T.A.R",
+    "repository": "https://github.com/YOUR-REPOSITORY",
+    "keywords": [
+        "jarvis"
+    ],
+    "author": "nezumi",
+    "license": "mit"
+  }

@@ -1,0 +1,53 @@
+{
+	"modules":{
+		"jarvis":{
+			"version":"1.0",
+			"name":"Jarvis",
+			"lettercd": "D",
+			"rules":{
+				"interfacerun":["(run|launch|lance|open|start|execute) * (interface|rainmeter)","interface open"],
+				"interfaceclose":["(close|quit|leave|farm|stop|exit) * (interface|rainmeter)"],
+				"chromerun":["(run|launch|lance|open|start|execute) * chrome"],
+				"chromeclose":["(close|quit|leave|farm|stop|exit) * chrome"],
+				"vlcrun":["(run|launch|lance|open|start|execute) * vlc"],
+				"vlcclose":["((close|quit|leave|farm|stop|exit) * vlc","vlc farm"],
+				"outlookrun":["(run|launch|lance|open|start|execute) * (email|emails|mail)"],
+				"outlookclose":["(close|quit|leave|farm|stop|exit) * (email|emails|mail)"],
+				"gmailrun":["(run|launch|lance|open|start|execute) gmail"],
+				"notepadrun":["(run|launch|lance|open|start|execute) * text editor","(run|launch|lance|open|start|execute) * notepad"],
+				"notepadclose":["(close|quit|leave|farm|stop|exit) * text editor","(close|quit|leave|farm|stop|exit) * notepad"],
+				"restartsystem":["restart * (pc|system)"],
+				"shutdownsystem":["(close|quit|leave|farm|stop|exit)* pc","(close|quit|leave|farm|stop|exit)* system"],
+				"logoutsystem":["(close|disconnect|farm) * session"],
+				"locksystem":["lock * session"],
+				"hibernatesystem":["(hibernate|hybernation)","put * (computer|system) * standby"],
+				"controlpanel":["(run|launch|lance|open|start|execute) * control panel"],
+				"taskmanager":["(run|launch|lance|open|start|execute) * task manager"],
+				"commandline":["(run|launch|launches|lance|open|start|execute) * window command","(run|launch|launches|lance|open|start|execute) * command window"],
+				"closeallwindows":["(run|launch|lance|open|start|execute) * windows"],
+				"lecteurcdopen":["(run|launch|lance|open|start|execute) * disc player"],
+				"lecteurcdclose":["(close|quit|leave|farm|stop|exit) * disc player"],
+				"screensaver":["(run|launch|launches|lance|open|start|execute) * screen saver"],
+				"powershellrun":["(run|launch|lance|open|start|execute) * PowerShell"],
+				"powershellclose":["(run|launch|lance|open|start|execute) * PowerShell"],
+				"wordrun":["(run|launch|lance|open|start|execute) * (world|word)"],
+				"wordclose":["(close|quit|leave|farm|stop|exit) * (world|word)"],
+				"excelrun":["(run|launch|lance|open|start|execute) * excel"],
+				"excelclose":["(close|quit|leave|farm|stop|exit) * excel"],
+				"urlnetflix":["(run|launch|lance|open|start|execute) * netflix"],
+				"folderun":["(run|launch|lance|open|start|execute) * desktop"],
+				"newfolder":["{create} * new folder"],
+				"calculatorrun":["(run|launch|lance|open|start|execute) * calculator"],
+				"folderdownload":["(run|launch|lance|open|start|execute) * folder download"],
+				"folderdiskc":["(run|launch|lance|open|start|execute) * folder dick C"],
+				"folderdesktop":["(run|launch|lance|open|start|execute) * folder desktop"],
+				"folderplugins":["(run|launch|lance|open|start|execute) * plugin folder"],
+				"folderavatar":["(run|launch|lance|open|start|execute) * avatar folder"],
+				"restartclient":["restart * client"],
+				"restartserver":["restart * server"],
+				"restartall":["restarts * client * server","restarts * server * client","restart * avatar"]
+			},
+			"active":true
+		}
+	}
+}
