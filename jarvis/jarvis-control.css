@@ -1,0 +1,127 @@
+/* ── Reset ─────────────────────────────────────────────────────── */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+
+body,html {
+    width:100%; height:100%;
+    overflow-y:auto; overflow-x:hidden;
+    font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+    background:#0d1117; color:#e6edf3;
+    -webkit-app-region:no-drag; user-select:none; font-size:12px;
+}
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:#0d1117; }
+::-webkit-scrollbar-thumb { background:#30363d; border-radius:4px; }
+
+/* ── Titlebar ───────────────────────────────────────────────────── */
+.titlebar {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:8px 12px; background:#161b22;
+    border-bottom:1px solid #30363d;
+    -webkit-app-region:drag;
+    height:38px; position:sticky; top:0; z-index:10;
+}
+.title-left { display:flex; align-items:center; gap:8px; }
+.logo  { font-size:16px; }
+.title-text { font-size:13px; font-weight:700; color:#58a6ff; letter-spacing:2px; }
+.close-btn {
+    font-size:12px; color:#8b949e; cursor:pointer;
+    padding:3px 8px; border-radius:4px;
+    -webkit-app-region:no-drag;
+    transition:background .2s, color .2s;
+}
+.close-btn:hover { background:#f85149; color:#fff; }
+
+/* ── Dashboard intégré ──────────────────────────────────────────── */
+.dashboard {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+    padding:10px 10px 6px;
+    background:#0d1117;
+    border-bottom:1px solid #21262d;
+}
+
+.dash-card {
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:8px;
+    padding:8px 10px;
+    display:flex; flex-direction:column; gap:4px;
+}
+.dash-card-sm {
+    flex-direction:row; align-items:center; gap:6px; padding:6px 10px;
+}
+
+.dash-top { display:flex; align-items:center; gap:6px; }
+.dash-icon  { font-size:14px; line-height:1; }
+.dash-label { font-size:9px; color:#8b949e; text-transform:uppercase; letter-spacing:1px; flex:1; }
+.dash-val   { font-size:16px; font-weight:700; color:#e6edf3; }
+.dash-val-sm{ font-size:13px; font-weight:700; color:#58a6ff; }
+.dash-sub   { font-size:9px; color:#8b949e; margin-top:1px; }
+
+.bar-track {
+    background:#21262d; border-radius:3px; height:5px; overflow:hidden;
+}
+.bar-fill {
+    height:100%; width:0%; border-radius:3px;
+    background:#238636;
+    transition:width .6s ease, background .3s;
+}
+.bar-fill.medium { background:#d29922; }
+.bar-fill.high   { background:#f85149; }
+
+/* ── Grille boutons ─────────────────────────────────────────────── */
+.grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+    padding:8px 10px 10px;
+}
+
+.sep {
+    grid-column:1/-1;
+    font-size:9px; text-transform:uppercase;
+    letter-spacing:1.5px; color:#484f58;
+    padding:5px 0 2px;
+    border-top:1px solid #21262d;
+    margin-top:2px;
+}
+
+.btn {
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:3px;
+    background:#161b22; border:1px solid #30363d;
+    border-radius:8px; padding:9px 6px;
+    cursor:pointer; color:#e6edf3;
+    transition:background .15s, border-color .15s, transform .1s;
+    -webkit-app-region:no-drag;
+}
+.btn:hover  { background:#1f2937; border-color:#58a6ff55; }
+.btn:active { transform:scale(.96); background:#0d1117; }
+
+.ico { font-size:17px; line-height:1; }
+.lbl { font-size:10px; color:#8b949e; text-align:center; line-height:1.2; }
+.btn:hover .lbl { color:#e6edf3; }
+
+/* Variantes */
+.btn-green  { border-color:#238636; background:#0a1f0e; }
+.btn-green:hover { background:#122d18; border-color:#3fb950; }
+.btn-orange { border-color:#9e6a03; background:#1f1500; }
+.btn-orange:hover { background:#2e1e00; border-color:#d29922; }
+.btn-red    { border-color:#da3633; background:#1f0a0a; }
+.btn-red:hover { background:#2d1010; border-color:#f85149; }
+
+.full {
+    grid-column:1/-1;
+    flex-direction:row; gap:8px; padding:9px 14px;
+}
+.full .ico { font-size:15px; }
+.full .lbl { font-size:11px; color:#c9d1d9; }
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+.footer {
+    text-align:center; font-size:9px; color:#30363d;
+    padding:5px 0 8px;
+    border-top:1px solid #21262d;
+}

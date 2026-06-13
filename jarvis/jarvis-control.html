@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; script-src-elem 'self'; style-src 'self' 'unsafe-inline'">
+    <link href="./jarvis-control.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <!-- ── Barre de titre ──────────────────────────────────────────────── -->
+    <div class="titlebar">
+        <div class="title-left">
+            <span class="logo">⚙</span>
+            <span class="title-text">JARVIS</span>
+        </div>
+        <span class="close-btn" id="closeBtn">✕</span>
+    </div>
+
+    <!-- ── Dashboard intégré ───────────────────────────────────────────── -->
+    <div class="dashboard">
+        <div class="dash-card">
+            <div class="dash-top">
+                <span class="dash-icon">🖥️</span>
+                <span class="dash-label">CPU</span>
+                <span class="dash-val" id="val-cpu">—</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" id="bar-cpu"></div></div>
+        </div>
+        <div class="dash-card">
+            <div class="dash-top">
+                <span class="dash-icon">🧠</span>
+                <span class="dash-label">RAM</span>
+                <span class="dash-val" id="val-ram">—</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" id="bar-ram"></div></div>
+            <div class="dash-sub" id="sub-ram">—</div>
+        </div>
+        <div class="dash-card dash-card-sm">
+            <span class="dash-icon">⏱️</span>
+            <span class="dash-label">Uptime</span>
+            <span class="dash-val-sm" id="val-uptime">—</span>
+        </div>
+        <div class="dash-card dash-card-sm">
+            <span class="dash-icon">💻</span>
+            <span class="dash-label">OS</span>
+            <span class="dash-val-sm" id="val-platform">—</span>
+        </div>
+    </div>
+
+    <!-- ── Grille de boutons ────────────────────────────────────────────── -->
+    <div class="grid">
+
+        <div class="sep">Applications</div>
+        <button class="btn" data-action="chromerun">
+            <span class="ico">🌐</span><span class="lbl">Chrome</span>
+        </button>
+        <button class="btn" data-action="vlcrun">
+            <span class="ico">🎬</span><span class="lbl">VLC</span>
+        </button>
+        <button class="btn" data-action="notepadrun">
+            <span class="ico">📝</span><span class="lbl">Notepad</span>
+        </button>
+        <button class="btn" data-action="calculatorrun">
+            <span class="ico">🧮</span><span class="lbl">Calculatrice</span>
+        </button>
+
+        <div class="sep">Dossiers</div>
+        <button class="btn" data-action="folderdesktop">
+            <span class="ico">🖥️</span><span class="lbl">Bureau</span>
+        </button>
+        <button class="btn" data-action="folderdownload">
+            <span class="ico">📥</span><span class="lbl">Télécharg.</span>
+        </button>
+        <button class="btn" data-action="folderplugins">
+            <span class="ico">🧩</span><span class="lbl">Plugins</span>
+        </button>
+        <button class="btn" data-action="folderavatar">
+            <span class="ico">📁</span><span class="lbl">Avatar</span>
+        </button>
+
+        <div class="sep">Système</div>
+        <button class="btn" data-action="locksystem">
+            <span class="ico">🔒</span><span class="lbl">Verrouiller</span>
+        </button>
+        <button class="btn" data-action="emptytash">
+            <span class="ico">🗑️</span><span class="lbl">Corbeille</span>
+        </button>
+        <button class="btn" data-action="taskmanager">
+            <span class="ico">📋</span><span class="lbl">Tâches</span>
+        </button>
+        <button class="btn" data-action="screensaver">
+            <span class="ico">🌌</span><span class="lbl">Économiseur</span>
+        </button>
+
+        <div class="sep">IA</div>
+        <button class="btn btn-green full" data-action="checkollama">
+            <span class="ico">🦙</span><span class="lbl">Vérifier / Démarrer Ollama</span>
+        </button>
+
+        <div class="sep">Avatar</div>
+        <button class="btn" data-action="restartclient">
+            <span class="ico">🔄</span><span class="lbl">Client</span>
+        </button>
+        <button class="btn" data-action="restartserver">
+            <span class="ico">🔄</span><span class="lbl">Serveur</span>
+        </button>
+        <button class="btn btn-orange" data-action="restartall">
+            <span class="ico">♻️</span><span class="lbl">Tout restart</span>
+        </button>
+        <button class="btn btn-red" data-action="shutdownsystem">
+            <span class="ico">⏻</span><span class="lbl">Éteindre</span>
+        </button>
+
+    </div>
+
+    <div class="footer" id="footer">—</div>
+
+    <script src="./jarvis-control-renderer.js"></script>
+</body>
+</html>
