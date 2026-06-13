@@ -1,74 +1,109 @@
-# Plugins Javis
+# Plugin Jarvis — A.V.A.T.A.R
 
 ![jarvis](../../core/plugins/jarvis/assets/images/jarvis.png =100x*)
 
-Plugin Jarvis pour A.V.A.T.A.R
+**Jarvis** est un module d'extension avancé pour le framework A.V.A.T.A.R. Il transforme votre assistant en un véritable majordome numérique capable de piloter votre système d'exploitation, vos logiciels de bureautique et vos périphériques matériels par la voix — et via un panneau de contrôle visuel.
 
-Jarvis est un module d'extension avancé pour le framework A.V.A.T.A.R. Il transforme votre assistant en un véritable majordome numérique capable de piloter votre système d'exploitation, vos logiciels de bureautique et vos périphériques matériels par la voix.
+---
 
---- 
+## Fonctionnalités
 
-## Fonctionnalités principales
+| Fonctionnalité | Description |
+|---|---|
+| 🎛️ **Widget panneau** | Un seul bouton ouvre le panneau de contrôle complet |
+| 🪟 **Panneau de contrôle** | Fenêtre HTML avec dashboard CPU/RAM + tous les raccourcis |
+| 🗣️ **Speaks sur boutons** | Chaque bouton du panneau déclenche une réponse vocale |
+| ⏰ **CRON** | Alerte RAM si > seuil configurable + rapport matinal à 8h |
+| 🌌 **Écran de veille Matrix** | Lancement vocal ou via le panneau |
+| 📸 **Screenshot vocal** | Capture d'écran horodatée sur le bureau |
+| 🔊 **Volume vocal** | Monte / baisse / coupe le son |
+| 💡 **Luminosité** | Monte / baisse (via nircmd sous Windows) |
+| 🔗 **Inter-plugins** | Écoute les triggers `Avatar.trigger('jarvis_trigger', ...)` |
 
---- 
+---
 
-### Contrôle du Système
+## Installation
 
-Gestion de session : Verrouillage, déconnexion, redémarrage et arrêt total du PC.
+1. Copier ce dossier dans :
+   ```
+   <AVATAR>/resources/app/core/plugins/jarvis/
+   ```
 
-Maintenance : Ouverture du gestionnaire des tâches, du panneau de configuration et nettoyage de la corbeille.
+2. Éditer `jarvis.prop` :
+   - `ollamaPath` : chemin vers `ollama_app.exe`
+   - `defaultClient` : nom de votre client Avatar principal
+   - `ramAlertThreshold` : seuil RAM en % avant alerte vocale (défaut : 90)
+   - `morningReport` : rapport vocal à 8h (true/false)
 
-Écran de veille : Activation d'un mode "Matrix" immersif.
+3. Redémarrer Avatar Server
 
---- 
+---
 
-### Navigation Intelligente
-Jarvis connaît les raccourcis vers vos dossiers les plus importants :
+## Widget — Configuration dans Widget Studio
 
-Dossiers Utilisateur : Bureau, Téléchargements, Disque C.
+Un **seul bouton** à configurer :
 
-Cœur du Système : Accès direct au dossier des plugins et à la racine d'Avatar.
+Ouvrir **Widget Studio** → onglet **Plugins** → **Jarvis**
 
-Débogage : Ouverture instantanée des fichiers de logs pour le suivi technique.
+| Champ | Valeur |
+|---|---|
+| Nom | Panneau Jarvis |
+| usage_name | Button_control |
+| periph_id | jarvis_control_00 |
+| Action On | Plugin : `Jarvis` — Paramètre : `control` |
+| Action Off | Plugin : `Jarvis` — Paramètre : `control` |
+| Image On | `assets/images/widget/Button_control/On.png` |
+| Image Off | `assets/images/widget/Button_control/Off.png` |
 
---- 
+> ⚠️ Les champs **Action On** et **Action Off** doivent tous les deux contenir `control`.  
+> Un clic ouvre le panneau, un deuxième clic le ferme.
 
-### Bureautique & Multimédia
-Suite Office : Lancement et fermeture rapide de Word, Excel et Outlook.
+---
 
-Web & Divertissement : Navigation optimisée sur Chrome, accès direct à Gmail et lancement de Netflix en mode application.
+## Panneau de contrôle
 
-Lecteur Multimédia : Contrôle total de VLC et de l'interface Rainmeter.
+Le panneau s'ouvre en cliquant sur le widget. Il affiche :
 
---- 
+- **Dashboard en temps réel** : CPU, RAM, Uptime, OS (rafraîchi toutes les 5s)
+- **Boutons d'action** organisés par section :
 
-### Configuration technique
+| Section | Boutons disponibles |
+|---|---|
+| Applications | Chrome, VLC, Notepad, Calculatrice |
+| Dossiers | Bureau, Téléchargements, Plugins, Avatar |
+| Système | Verrouiller, Corbeille, Tâches, Économiseur |
+| IA | Vérifier / Démarrer Ollama |
+| Avatar | Client, Serveur, Tout restart, Éteindre PC |
 
-Le plugin utilise une architecture multi-plateforme (Windows, macOS, Linux) et s'appuie sur des outils robustes :
+> Les boutons **Restart all** et **Éteindre** demandent une confirmation en deux clics.
 
-NirCmd : Pour les interactions matérielles sous Windows.
+---
 
-PowerShell : Pour les actions système complexes et sécurisées.
+## Inter-plugins
 
-Node.js : Gestion asynchrone des processus avec Avatar.runApp.
+Depuis n'importe quel autre plugin :
 
-Personnalisation (jarvis.prop)
-Vous pouvez définir vos lettres de lecteurs spécifiques dans le fichier de configuration :
+```js
+Avatar.trigger('jarvis_trigger', {
+    command: 'locksystem',
+    client: 'Living room'
+});
+```
 
-    "lettercd": "D",
+---
 
---- 
+## Commandes vocales (exemples)
 
-## Exemples de commandes vocales
+- *"monte le volume"*, *"baisse le son"*, *"coupe le son"*
+- *"augmente la luminosité"*, *"baisse la luminosité"*
+- *"prends une capture d'écran"*
+- *"diagnostic système"*
+- *"vide la corbeille"*
+- *"verrouille la session"*
+- *"lance l'écran de veille"*
+- *"vérifie ollama"*, *"démarre ollama"*
+- *"redémarre le client"*, *"redémarre avatar"*
 
-> `"Sarah, ouvre le dossier des plugins."`
-> 
-> `"Sarah, lance Microsoft Excel."`
-> 
-> `"Sarah, lance Netflix."`
-> 
-> `"Sarah, lance l'écran de veille."`
+<br><br>
 
-
-
-<br><br><br><br>
+Version : v2
