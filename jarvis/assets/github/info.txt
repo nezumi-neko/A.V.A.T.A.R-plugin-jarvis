@@ -1,0 +1,3 @@
+Le plugin **Jarvis** est un plugin destiné à contrôler, et naviguer sur votre PC, il permet d'ouvrir des dossiers, documents, lancer des logiciels (jeux, éditeur de texte...), ouvrir des pages web, agir sur les périphériques du PC (Widget ajouté).
+
+The Jarvis plugin is designed to control and navigate your PC. It allows you to open folders and documents, launch software (games, text editors, etc.), open web pages, and interact with PC peripherals (widget included).
