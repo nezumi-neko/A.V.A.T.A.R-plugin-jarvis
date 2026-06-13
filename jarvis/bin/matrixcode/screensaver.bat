@@ -1,2 +1,4 @@
 @echo off
-start C:\"avatar\server\resources\app\core\plugins\jarvis\bin\matrixcode\matrix.scr" /p
+:: Lancer matrix.scr en plein écran depuis son propre dossier
+cd /d "%~dp0"
+start "" "%~dp0matrix.scr" /s
