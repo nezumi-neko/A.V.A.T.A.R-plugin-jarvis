@@ -1,71 +1,99 @@
-# A.V.A.T.A.R-plugin-jarvis
-Plugin Jarvis pour A.V.A.T.A.R
+# Jarvis Plugin v2.0 — A.V.A.T.A.R
 
 Jarvis est un module d'extension avancé pour le framework A.V.A.T.A.R. Il transforme votre assistant en un véritable majordome numérique capable de piloter votre système d'exploitation, vos logiciels de bureautique et vos périphériques matériels par la voix.
 
---- 
+---
 
-## Fonctionnalités principales
+## Widget — Configuration dans Widget Studio
 
---- 
+Un **seul bouton** à configurer.
 
-### Contrôle du Système
+Ouvrir **Widget Studio** → onglet **Plugins** → **Jarvis**
 
-Gestion de session : Verrouillage, déconnexion, redémarrage et arrêt total du PC.
+| Champ | Valeur |
+|---|---|
+| Nom | Panneau Jarvis |
+| usage_name | `Button_control` |
+| periph_id | `jarvis_control_00` |
+| Action On — Paramètre | `control` |
+| Action Off — Paramètre | `control` |
+| Image On | `assets/images/widget/Button_control/On.png` |
+| Image Off | `assets/images/widget/Button_control/Off.png` |
 
-Maintenance : Ouverture du gestionnaire des tâches, du panneau de configuration et nettoyage de la corbeille.
+> ⚠️ Les deux champs Action On et Action Off doivent contenir `control`.
 
-Écran de veille : Activation d'un mode "Matrix" immersif.
-
---- 
-
-### Navigation Intelligente
-Jarvis connaît les raccourcis vers vos dossiers les plus importants :
-
-Dossiers Utilisateur : Bureau, Téléchargements, Disque C.
-
-Cœur du Système : Accès direct au dossier des plugins et à la racine d'Avatar.
-
-Débogage : Ouverture instantanée des fichiers de logs pour le suivi technique.
-
---- 
-
-### Bureautique & Multimédia
-Suite Office : Lancement et fermeture rapide de Word, Excel et Outlook.
-
-Web & Divertissement : Navigation optimisée sur Chrome, accès direct à Gmail et lancement de Netflix en mode application.
-
-Lecteur Multimédia : Contrôle total de VLC et de l'interface Rainmeter.
-
---- 
-
-### Configuration technique
-
-Le plugin utilise une architecture multi-plateforme (Windows, macOS, Linux) et s'appuie sur des outils robustes :
-
-NirCmd : Pour les interactions matérielles sous Windows.
-
-PowerShell : Pour les actions système complexes et sécurisées.
-
-Node.js : Gestion asynchrone des processus avec Avatar.runApp.
-
-Personnalisation (jarvis.prop)
-Vous pouvez définir vos lettres de lecteurs spécifiques dans le fichier de configuration :
-
-    "lettercd": "D",
-
---- 
+---
 
 ## Exemples de commandes vocales
 
-> `"Sarah, ouvre le dossier des plugins."`
-> 
-> `"Sarah, lance Microsoft Excel."`
-> 
-> `"Sarah, lance Netflix."`
-> 
-> `"Sarah, lance l'écran de veille."`
+Chaque phrase déclenche une action **et** une réponse vocale de Jarvis.
 
+### 🌐 Applications
+> *"Sarah, ouvre Chrome"*
+> *"Sarah, lance le navigateur Chrome"*
+> *"Sarah, ouvre VLC"*
+> *"Sarah, lance Netflix"*
+> *"Sarah, ouvre Gmail"*
 
+### 📁 Dossiers
+> *"Sarah, ouvre le bureau"*
+> *"Sarah, ouvre le dossier des téléchargements"*
+> *"Sarah, ouvre le dossier des plugins"*
+> *"Sarah, ouvre le dossier Avatar"*
 
-<br><br><br><br>
+### 🖥️ Système
+> *"Sarah, verrouille la session"*
+> *"Sarah, vide la corbeille"*
+> *"Sarah, gestionnaire des tâches"*
+> *"Sarah, lance l'écran de veille"*
+> *"Sarah, diagnostic système"*
+> *"Sarah, éteins le PC"*
+> *"Sarah, redémarre le PC"*
+
+### 🔊 Volume & luminosité
+> *"Sarah, monte le volume"*
+> *"Sarah, baisse le son"*
+> *"Sarah, coupe le son"*
+> *"Sarah, augmente la luminosité"*
+> *"Sarah, baisse la luminosité"*
+
+### 📸 Capture & recherche
+> *"Sarah, prends une capture d'écran"*
+> *"Sarah, cherche la météo de Paris"*
+> *"Sarah, recherche les actualités du jour"*
+
+### 🤖 IA & Avatar
+> *"Sarah, vérifie ollama"*
+> *"Sarah, démarre ollama"*
+> *"Sarah, redémarre le client"*
+> *"Sarah, redémarre avatar"*
+
+### 🎛️ Panneau de contrôle
+> *"Sarah, ouvre le panneau Jarvis"*
+> *"Sarah, affiche le panneau Jarvis"*
+
+---
+
+## Changelog
+
+### v2.0 (actuel)
+- ✅ Widget : un Panneau Jarvis
+- ✅ Dashboard CPU/RAM/Uptime/OS intégré directement dans le panneau de contrôle
+- ✅ Speaks vocaux sur chaque bouton du panneau HTML (lus depuis `fr.pak` / `en.pak`)
+- ✅ CRON toutes les 5 minutes : alerte RAM configurable + rapport matinal à 8h
+- ✅ Commandes vocales : volume, luminosité, screenshot, notification système
+- ✅ Confirmation vocale pour les actions irréversibles (shutdown, restart, close all)
+- ✅ Inter-plugins via `Avatar.trigger('jarvis_trigger', { command, client })`
+
+### v1.0
+- ✅ Commandes vocales système : verrouiller, déconnecter, redémarrer, éteindre, hibernation
+- ✅ Gestion de session Windows via `rundll32`, `shutdown`, PowerShell
+- ✅ Lancement / fermeture d'applications : Chrome, VLC, Word, Excel, Outlook, Notepad++
+- ✅ Raccourcis dossiers : Bureau, Téléchargements, Disque C, Plugins, Avatar
+- ✅ Recherche internet vocale avec `Avatar.askme` si aucun terme détecté
+- ✅ Contrôle lecteur CD/DVD via `nircmd`
+- ✅ Écran de veille Matrix (`matrix.scr`)
+- ✅ Sites directs : Netflix, YouTube, Gmail
+- ✅ Redémarrage client/serveur Avatar
+- ✅ Architecture multi-plateforme Windows / macOS / Linux
+
